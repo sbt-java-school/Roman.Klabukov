@@ -57,8 +57,8 @@ public class Application {
 
     public static void readContent(final String urlString) throws IOException {
 
-        URL resource = new URL(urlString);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(resource.openStream()));
+        URL url = new URL(urlString);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
         while (reader.ready()) {
             System.out.println(reader.readLine() + "\n");
         }
