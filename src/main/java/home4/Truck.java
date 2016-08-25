@@ -9,11 +9,14 @@ public class Truck {
     private final int capacity;
     private final String label;
 
+
     public Truck(final long id, final String label, final int capacity) {
         this.id = id;
         this.capacity = capacity;
         this.label = label;
+
     }
+
 
     public long getId() {
         return id;
