@@ -8,11 +8,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
 
-/**
- * Created by rmk9 on 22.08.16.
- */
-
-
 public class Application {
 
     public static void main(String[] args) throws IOException {

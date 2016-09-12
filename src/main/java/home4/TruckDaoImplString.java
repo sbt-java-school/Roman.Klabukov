@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by rmk9 on 17.08.16.
- */
-public class TruckDaoMemoryImpl implements TruckDao {
+public class TruckDaoImplString implements TruckDao {
 
     private final List<Truck> truckList = new ArrayList<>(Arrays.asList(
             new Truck(1, "VOLVO", 30),
@@ -21,10 +18,8 @@ public class TruckDaoMemoryImpl implements TruckDao {
             new Truck(9, "VOLVO", 35)
     ));
 
-    @Override
     public List<Truck> list() {
         return truckList;
     }
-
 
 }

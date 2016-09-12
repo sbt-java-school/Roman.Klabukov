@@ -6,10 +6,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Stack;
 
-/**
- * Created by rmk9 on 24.08.16.
- */
-public class scanClass {
+
+public class ScanClass {
 
     public static void printClass(final Class clazz) {
 
@@ -103,12 +101,12 @@ public class scanClass {
 
         Class clazz = Class.forName(args[0]);
 
-        scanClass.printClass(clazz);
-        scanClass.printSuperclasses(clazz);
-        scanClass.printInterfaces(clazz);
-        scanClass.printConstructors(clazz);
-        scanClass.printMethods(clazz);
-        scanClass.printFields(clazz);
+        ScanClass.printClass(clazz);
+        ScanClass.printSuperclasses(clazz);
+        ScanClass.printInterfaces(clazz);
+        ScanClass.printConstructors(clazz);
+        ScanClass.printMethods(clazz);
+        ScanClass.printFields(clazz);
 
     }
 

@@ -4,14 +4,10 @@ package home4;
 
 import java.util.*;
 
-/**
- * Created by rmk9 on 17.08.16.
- */
-
-public class Application {
+public class Application <T> {
 
     private Map<Long, Truck> truckRegistry = new TreeMap<>();
-    private Map<String, List<Truck>> truckRegistryByType = new TreeMap<>();
+    private Map<T, List<Truck>> truckRegistryByType = new TreeMap<>();
 
     public Application(final TruckDao truckDao) {
 
@@ -24,19 +20,19 @@ public class Application {
                 throw new IllegalStateException("Two truck with same Id.");
             }
 
-            if(truckRegistryByType.containsKey(truck.getLabel())) {
-                truckRegistryByType.get(truck.getLabel()).add(truck);
+            if(truckRegistryByType.containsKey(truck.getType())) {
+                truckRegistryByType.get(truck.getType()).add(truck);
             } else {
-                truckRegistryByType.put(truck.getLabel(), new ArrayList<>(Arrays.asList(truck)));
+                truckRegistryByType.put((T)truck.getType(), new ArrayList<>(Arrays.asList(truck)));
             }
 
         }
 
     }
 
-    public List<Truck> getTrucksByLabel(final String label) {
-        if(truckRegistryByType.containsKey(label)) {
-            return truckRegistryByType.get(label);
+    public List<Truck> getTrucksByType(final T type) {
+        if(truckRegistryByType.containsKey(type)) {
+            return truckRegistryByType.get(type);
         } else {
             throw new IllegalArgumentException("Trucks of this label not found.");
         }
@@ -55,17 +51,19 @@ public class Application {
             printHelp();
         }
 
-        TruckDao truckDao = new TruckDaoMemoryImpl();
-        Application application = new Application(truckDao);
+        TruckDao truckDao = new TruckDaoImplString();
+        Application applicationString = new Application(truckDao);
+        truckDao = new TruckDaoImplEnum();
+        Application applicationEnum = new Application(truckDao);
 
-        long truckId = Long.parseLong(args[0]);
-        String truckLabel = args[1];
+        String truckTypeString = args[0];
+        TruckEnum truckTypeEnum = TruckEnum.valueOf(args[1]);
 
-        Truck truckById = application.getTruckById(truckId);
-        List<Truck> trucksByLabel = application.getTrucksByLabel(truckLabel);
+        List<Truck> trucksByTypeString = applicationString.getTrucksByType(truckTypeString);
+        List<Truck> trucksByTypeEnum = applicationEnum.getTrucksByType(truckTypeEnum);
 
-        System.out.println(trucksByLabel);
-
+        System.out.println(trucksByTypeString);
+        System.out.println(trucksByTypeEnum);
     }
 
     private static void printHelp() {

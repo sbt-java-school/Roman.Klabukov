@@ -1,20 +1,16 @@
 package home4;
 
-/**
- * Created by rmk9 on 17.08.16.
- */
-public class Truck {
+public class Truck<T> {
 
     private final long id;
     private final int capacity;
-    private final String label;
+    private final T type;
 
 
-    public Truck(final long id, final String label, final int capacity) {
+    public Truck(final long id, final T type, final int capacity) {
         this.id = id;
         this.capacity = capacity;
-        this.label = label;
-
+        this.type = type;
     }
 
 
@@ -26,8 +22,8 @@ public class Truck {
         return capacity;
     }
 
-    public String getLabel() {
-        return label;
+    public T getType() {
+        return type;
     }
 
     @Override
@@ -35,7 +31,7 @@ public class Truck {
         return "Truck{" +
                 "id=" + id +
                 ", capacity=" + capacity +
-                ", label='" + label + '\'' +
+                ", type='" + type + '\'' +
                 '}';
     }
 }
