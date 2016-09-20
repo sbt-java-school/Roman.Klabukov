@@ -1,0 +1,9 @@
+Написал класс PluginManager. Корректно обрабатывает ситуации когда в разых плагинах классы с одинаковым именем и когда
+класс с таким же именем есть в самой программе.
+
+Лучше разобрался с класслоадерами, пользовался ресурсами:
+http://dmitriymx.ru/blog/classloader-dynamic-load-classes
+http://www.quizful.net/post/Java
+
+В некоторых вопросах помогла работа коллеги:
+https://github.com/sbt-java-school/dmitri.druzhinin.hometasks/tree/master/hometask11/
