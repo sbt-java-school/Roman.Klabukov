@@ -1,0 +1,6 @@
+Написал класс ThreadPool, который ограничивает количество активных потоков. ThreadPool работает над блокирующей
+очередью добавляя в нее таски. Таски выполняются и выходят их очереди. Также он умеет прекращать работу всех потоков.
+
+Лучше разобрался с потоками, ресурсы:
+http://tutorials.jenkov.com/java-concurrency/index.html
+http://www.ibm.com/developerworks/java/library/j-jtp0730/index.html
