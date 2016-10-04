@@ -1,4 +1,5 @@
-package home6;
+package ru.sbt.home6ClassInfo;
+
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
